@@ -1,7 +1,15 @@
 <script setup lang="ts">
+import { onMounted, ref } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
-import { DemoComp } from '@yp/demo-comp'
-import '@yp/demo-comp/dist/style.css'
+import { DemoComp } from '@dono118/demo-comp'
+import '@dono118/demo-comp/dist/style.css'
+
+const demoCompRef = ref<InstanceType<typeof DemoComp>>()
+onMounted(() => {
+  setTimeout(() => {
+    demoCompRef.value?.onChangeContent(`改变：${new Date().toLocaleString()}`)
+  }, 2000)
+})
 </script>
 
 <template>
@@ -13,7 +21,7 @@ import '@yp/demo-comp/dist/style.css'
       <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
     </a>
   </div>
-  <DemoComp color="red"></DemoComp>
+  <DemoComp ref="demoCompRef" color="blue"></DemoComp>
   <HelloWorld msg="Vite + Vue" />
 </template>
 

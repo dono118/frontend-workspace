@@ -9,7 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@yp/demo-comp": "workspace:^",
+    "@dono118/demo-comp": "workspace:^",
     "vue": "^3.3.4"
   },
   "devDependencies": {
